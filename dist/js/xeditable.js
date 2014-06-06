@@ -1,7 +1,7 @@
 /*!
 angular-xeditable - 0.1.8
 Edit-in-place for angular.js
-Build date: 2014-01-10 
+Build date: 2014-06-05 
 */
 /**
  * Angular-xeditable module 
@@ -197,11 +197,12 @@ angular.module('xeditable').directive('editableRadiolist', [
         this.parent.render.call(this);
         var parsed = editableNgOptionsParser(this.attrs.eNgOptions);
         var html = '<label ng-repeat="'+parsed.ngRepeat+'">'+
-          '<input type="radio" ng-model="$parent.$data" value="{{'+parsed.locals.valueFn+'}}">'+
+          '<input type="radio" ng-change="' + this.attrs.eNgChange + '" ng-model="$parent.$data" value="{{'+parsed.locals.valueFn+'}}">'+
           '<span ng-bind="'+parsed.locals.displayFn+'"></span></label>';
 
         this.inputEl.removeAttr('ng-model');
         this.inputEl.removeAttr('ng-options');
+        this.inputEl.removeAttr('ng-change');
         this.inputEl.html(html);
       },
       autosubmit: function() {
