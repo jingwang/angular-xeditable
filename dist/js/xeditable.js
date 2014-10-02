@@ -1,7 +1,7 @@
 /*!
 angular-xeditable - 0.1.8
 Edit-in-place for angular.js
-Build date: 2014-07-13 
+Build date: 2014-10-01 
 */
 /**
  * Angular-xeditable module 
@@ -137,7 +137,7 @@ angular.module('xeditable').directive('editableChecklist', [
       render: function() {
         this.parent.render.call(this);
         var parsed = editableNgOptionsParser(this.attrs.eNgOptions);
-          var html = '<label ng-repeat="'+parsed.ngRepeat+'">'+
+          var html = '<label ng-repeat="'+parsed.ngRepeat+'" ng-class="' + parsed.locals.groupFn + '">'+
               '<input type="checkbox" ng-disabled="' + this.attrs.eNgDisabled + '" ng-change="' + this.attrs.eNgChange + '" checklist-model="$parent.$data" checklist-value="'+parsed.locals.valueFn+'">'+
               '<span ng-bind="'+parsed.locals.displayFn+'"></span></label>';
 
@@ -1489,7 +1489,8 @@ angular.module('xeditable').factory('editableNgOptionsParser', [
         valueName: valueName,
         keyName: keyName,
         valueFn: valueFn,
-        displayFn: displayFn
+        displayFn: displayFn,
+        groupFn: groupByFn
       }
     };
   }

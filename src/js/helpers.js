@@ -161,7 +161,8 @@ angular.module('xeditable').factory('editableNgOptionsParser', [
         valueName: valueName,
         keyName: keyName,
         valueFn: valueFn,
-        displayFn: displayFn
+        displayFn: displayFn,
+        groupFn: groupByFn
       }
     };
   }

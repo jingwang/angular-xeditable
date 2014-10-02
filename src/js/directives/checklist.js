@@ -10,7 +10,7 @@ angular.module('xeditable').directive('editableChecklist', [
       render: function() {
         this.parent.render.call(this);
         var parsed = editableNgOptionsParser(this.attrs.eNgOptions);
-          var html = '<label ng-repeat="'+parsed.ngRepeat+'">'+
+          var html = '<label ng-repeat="'+parsed.ngRepeat+'" ng-class="' + parsed.locals.groupFn + '">'+
               '<input type="checkbox" ng-disabled="' + this.attrs.eNgDisabled + '" ng-change="' + this.attrs.eNgChange + '" checklist-model="$parent.$data" checklist-value="'+parsed.locals.valueFn+'">'+
               '<span ng-bind="'+parsed.locals.displayFn+'"></span></label>';
 
